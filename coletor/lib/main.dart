@@ -17,6 +17,7 @@ class ColetorApp extends StatelessWidget {
       title: 'ColetorApp',
       theme: ThemeData(
         primaryColor: Colors.deepPurple,
+        primarySwatch: Colors.grey,
       ),
       home: LoginApp(),
     );

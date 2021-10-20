@@ -32,6 +32,7 @@ class _LoginAppState extends State<LoginApp> {
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.perm_identity,color: Colors.black),
                   labelText: 'Usuário',
+                  labelStyle: TextStyle(fontSize: 18,color: Colors.white),
                 ),
               ),
             ),
@@ -61,6 +62,7 @@ class _LoginAppState extends State<LoginApp> {
                   border: const OutlineInputBorder(),
                   prefixIcon: const Icon(Icons.vpn_key_sharp,color: Colors.amber),
                   labelText: 'Senha',
+                    labelStyle: const TextStyle(fontSize: 18,color: Colors.white),
                 ),
               ),
             ),
@@ -70,14 +72,16 @@ class _LoginAppState extends State<LoginApp> {
               height: 55,
               width: 390,
               decoration:  BoxDecoration(
-                border: Border.all(width: 0.2),),
+                border: Border.all(width: 0.5,color: Colors.white),),
               child: DropdownButton(
                 value: selectBase,
                 icon: const Icon(Icons.arrow_drop_down),
                 iconSize: 20,
                 isExpanded: true,
+                dropdownColor: Colors.black87,
                 underline: const SizedBox.shrink(),
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
+                style: const TextStyle(fontSize: 18,fontFamily: 'Roboto', color: Colors.white),
                 onChanged: (value) {
                   setState(() {
                     selectBase = selectBase;
