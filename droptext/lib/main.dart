@@ -1,13 +1,10 @@
-import 'package:dropdownfield/dropdownfield.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: MyApp(),
-    )
-  );
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: true,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -18,6 +15,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var selectBase = 'EPOCA';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,24 +31,50 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children:  [
-            const Text("DropDown & TextField",style: TextStyle(fontSize: 20.0),
-                textAlign: TextAlign.center,
+          children: [
+            const Text(
+              "DropDown & TextField",
+              style: TextStyle(fontSize: 20.0),
+              textAlign: TextAlign.center,
             ),
-
-            const SizedBox(height: 20.0,),
-
-            DropDownField(
-              controller: baseSelected,
-              hintText: "Selecione a Base",
-              enabled: true,
-              itemsVisibleInDropdown: 5,
-              items: base,
-              onValueChanged: (value) {
-                setState(() {
-                  selectBase = value;
-                });
-              },
+            const SizedBox(
+              height: 20.0,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              height: 50,
+              decoration: BoxDecoration(
+                //border: Border.all(width: 0.2),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color: Colors.grey[200],
+              ),
+              child: DropdownButton<String>(
+                  value: selectBase,
+                  icon: const Icon(Icons.arrow_drop_down),
+                  iconSize: 20,
+                  isExpanded: true,
+                  underline: const SizedBox.shrink(),
+                  borderRadius: BorderRadius.circular(10),
+                  style: TextStyle(color: Colors.grey.shade700),
+                  onChanged: (value) {
+                    setState(() {
+                      selectBase = value!;
+                    });
+                  },
+                  items: const [
+                    DropdownMenuItem(
+                      child: Text('EPOCA'),
+                      value: 'EPOCA',
+                    ),
+                    DropdownMenuItem(
+                      child: Text('MRURAL'),
+                      value: 'MRURAL',
+                    ),
+                    DropdownMenuItem(
+                      child: Text('FUTURA'),
+                      value: 'FUTURA',
+                    ),
+                  ]),
             ),
           ],
         ),
@@ -57,12 +82,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-final baseSelected = TextEditingController();
-
-//Criar lista.
-
-String selectBase = "";
-List<String> base = [
-  'EPOCA', "MIRN", "EPOCA.TST", "MINR.TST"
-];
