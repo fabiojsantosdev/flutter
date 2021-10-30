@@ -11,6 +11,8 @@ class LoginApp extends StatefulWidget {
 class _LoginAppState extends State<LoginApp> {
   var isVisibility = true;
   var selectBase = 'EPOCA';
+  String email = '';
+  String password = '';
 
   Widget _body(){
     return SingleChildScrollView(
@@ -96,7 +98,28 @@ class _LoginAppState extends State<LoginApp> {
             ),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (email == 'fabio' && password == '123') {
+                  showDialog<void>(
+                    context: context,
+                    barrierDismissible: false, // user must tap button!
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Logado'),
+                        content: const Text('Logado com Sucesso.'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('OK'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
               child: const Text('Entrar'),
             ),
           ],
