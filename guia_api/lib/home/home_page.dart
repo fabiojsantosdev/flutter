@@ -13,19 +13,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Guia Acesso Api'),
+        title: const Text('Guia Acesso Api'),
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-                onPressed: () => Get.toNamed('/http') ,
-                child: const Text(
-                  'HTTP',
-                  style: TextStyle(fontSize: 20),
-                ),
+              onPressed: () => Get.toNamed('/http'),
+              child: const Text(
+                'HTTP',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             TextButton(
               onPressed: () {},
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed('/getconnect'),
               child: const Text(
                 'GETCONNECT',
                 style: TextStyle(fontSize: 20),
